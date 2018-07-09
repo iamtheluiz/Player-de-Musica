@@ -2,7 +2,7 @@
 
 class Sys{
 	//Atributos 
-	private $pdo;
+	public $pdo;
 
 	//Métodos 
 	public function __construct(){
@@ -23,7 +23,6 @@ class Sys{
 
 		$query = $pdo->prepare($sql);
 		$query->execute();
-		echo $sql;
 
 		if($query->rowCount() > 0){
 			$row = $query->fetch(PDO::FETCH_ASSOC);

@@ -7,11 +7,11 @@
         <meta charset="utf-8">
     </head>
     <body class="blue">
-        <div class="container">
+        <div class="content">
             <div class="row">
                 <br><br>
                 <form action="login.php" method="post">
-                    <div class="col s8 offset-s2 center-align white">
+                    <div class="col s10 offset-s1 m8 offset-m2 center-align white">
                         <div class="titulo">
                             <br><br>
                             <i class="material-icons large">headset</i>
@@ -37,11 +37,6 @@
         <!--Scripts-->
         <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $('.sidenav').sidenav();
-            });
-        </script>
     </body>
 </html>
 <style type="text/css">
@@ -49,7 +44,7 @@
         margin:0;
         padding:0;
     }
-    .container{
+    .content{
         width: 100%;
     }
 </style>

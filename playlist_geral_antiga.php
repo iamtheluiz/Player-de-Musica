@@ -92,7 +92,7 @@
                 var c = parseInt(document.getElementById('musica').value);
                 c--;
 
-                var m_nome = musicas[c][0] + ' - ' + musicas[c][2];
+                var m_nome = musicas[c][0];
                 nome.innerHTML = m_nome;
                 nome2.innerHTML = m_nome;
             }
@@ -162,35 +162,38 @@
                 <div class="col s12 blue lighten-1 teste" style="cursor:pointer;">
                     <?php 
                         $musicas = [];
-                        $c = 0;
+                        $c = -2;
 
-                        $pdo = $sys->pdo;
-                        $sql = "SELECT * from tb_musica";
-                        $query = $pdo->prepare($sql);
-                        $query->execute();
-
-                        while($row = $query->fetch(PDO::FETCH_OBJ)){
-                            $nm = $row->nm_musica;
-                            $file = $row->url_musica;
-                            $banda = $row->nm_banda;
-                            $musicas[$c]['nome'] = $nm;
-                            $musicas[$c]['src'] = $file;
-                            $musicas[$c]['banda'] = $banda;
-                            echo "<div id='m".$c."' onclick='selecionarMusica(".($c + 1).")'>";
-                            echo "<i class='material-icons'>audiotrack</i>$nm<br>";
-                            echo "</div>";
-                            $c++;
+                        if ($dir = opendir('./musicas/')) {
+                            while (false !== ($file = readdir($dir))) {
+                                if ($file != "." && $file != "..") {
+                                    /*echo "<i class='material-icons'>audiotrack</i>$file";
+                                    echo "<audio controls>";
+                                    echo "<source src='musicas/"."$file' type='audio/mpeg'>";
+                                    echo "</audio>";*/
+                                    $nome_temp = explode('.',$file);
+                                    $nome = $nome_temp[0];
+                                    $musicas[$c] = [];
+                                    $musicas[$c]['nome'] = $nome;
+                                    $musicas[$c]['src'] = $file;
+                                    echo "<div id='m".$c."' onclick='selecionarMusica(".($c + 1).")'>";
+                                    echo "<i class='material-icons'>audiotrack</i>$file<br>";
+                                    echo "</div>";
+                                }
+                                $c++;
+                            }
+                            echo '<br>';
+                            echo '<br>';
+                            echo '<br>';
+                            closedir($dir);
+                            echo "<input id='musica_ant' type='hidden' value='0'>";
+                            echo "<input id='musica' type='hidden' value='1'>";
+                            echo "<input id='duration' type='hidden' value=''>";
+                            echo "<input id='status' type='hidden' value='play'>";
+                            echo "<audio id='player' controls autoplay onended='proximaMusica()' onplay='corzinha_2();' ontimeupdate='range_time()' style='display: none;'>
+                                    <source id='audio' src='musicas/".$musicas[0]['src']."' type='audio/mpeg'>
+                                </audio>";
                         }
-                        echo '<br>';
-                        echo '<br>';
-                        echo '<br>';
-                        echo "<input id='musica_ant' type='hidden' value='0'>";
-                        echo "<input id='musica' type='hidden' value='1'>";
-                        echo "<input id='duration' type='hidden' value=''>";
-                        echo "<input id='status' type='hidden' value='play'>";
-                        echo "<audio id='player' controls autoplay onended='proximaMusica()' onplay='corzinha_2();' ontimeupdate='range_time()' style='display: none;'>
-                                <source id='audio' src='musicas/".$musicas[0]['src']."' type='audio/mpeg'>
-                            </audio>";
                     ?>
                 </div>
                 <div id="botao" class="botao col s12">
@@ -205,7 +208,7 @@
                     </div>
                 </div>
                 <div id="controles" class="controles col s12 blue lighten-4 player" style="display: none;">
-                    <div class="col s12 center center-align">
+                    <div class="col s12">
                         <div id="nome_2"></div>
                     </div>
                     <div class="col s10 offset-s1">
@@ -244,7 +247,6 @@
                     echo "musicas[$i] = [];";
                     echo "musicas[$i][0] = '".$musicas[$i]['nome']."';";
                     echo "musicas[$i][1] = 'musicas/".$musicas[$i]['src']."';";
-                    echo "musicas[$i][2] = '".$musicas[$i]['banda']."';";
                     $i++;
                 }
             ?>

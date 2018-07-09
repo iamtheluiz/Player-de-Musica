@@ -2,13 +2,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/material_icons.css" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta charset="utf-8">
     </head>
     <body>
-        <div class="container">
+        <div class="content">
             <div class="row">
                 <!-- audiotrack, headset, delete, folder, play_circle_filled -->
                 <div class="col s12 blue topo">
@@ -21,42 +22,87 @@
                     </div>
                 </div>
                 <div class="col s12 blue lighten-1 teste">
-                    <div class="caixa col s4 offset-s1 white center center-align">
-                        <div class="col s12" style='float:left'>   
-                            <i class='material-icons large'>play_circle_filled</i>
+                    <div class="col s10 offset-s1">
+                        <div class="caixa col s8 white center center-align offset-s2">
+                            <a href="playlist_geral.php">
+                                <div class="col s12" style='float:left'>   
+                                    <i class='material-icons large'>play_circle_filled</i>
+                                </div>
+                                <div class="col s12" style='float:left'>
+                                    <p>Playlist<br>Geral</p>
+                                </div>
+                            </a>
                         </div>
-                        <div class="col s12" style='float:left'>
-                            <p>Teste</p>
+                        <!-- <div class="caixa col s8 offset-s2 white center center-align">
+                            <a href="playlist_geral.php">
+                                <div class="col s12" style='float:left'>   
+                                    <i class='material-icons large'>play_circle_filled</i>
+                                </div>
+                                <div class="col s12" style='float:left'>
+                                    <p>Playlist Geral</p>
+                                </div>
+                            </a>
+                        </div> -->
+                        <?php 
+                            $pdo = $sys->pdo;
+                            $sql = "SELECT * from tb_playlist";
+                            $query = $pdo->prepare($sql);
+                            $query->execute();
+
+                            while($row = $query->fetch(PDO::FETCH_ASSOC)){
+                                echo '<div class="caixa col s8 white center center-align offset-s2">
+                                    <a href="ver_playlist.php?cd='.$row['cd_playlist'].'">
+                                        <div class="col s12" style="float:left">   
+                                            <i class="material-icons large">play_circle_filled</i>
+                                        </div>
+                                        <div class="col s12" style="float:left">
+                                            <p>'.$row['nm_playlist'].'</p>
+                                        </div>
+                                    </a>
+                                </div>';
+                            }
+                        ?>
+                        <div class="caixa col s8 red center center-align offset-s2">
+                            <a href="#modal1" class="waves-effect red modal-trigger">
+                                <div class="col s12 white-text" style='float:left'>   
+                                    <i class='material-icons large'>add</i>
+                                </div>
+                                <div class="col s12 white-text" style='float:left'>
+                                    <p>Criar<br>Playlist</p>
+                                </div>
+                            </a>
                         </div>
-                    </div>
-                    <div class="caixa col s4 offset-s2 white center center-align">
-                        <div class="col s12" style='float:left'>   
-                            <i class='material-icons large'>play_circle_filled</i>
-                        </div>
-                        <div class="col s12" style='float:left'>
-                            <p>Teste</p>
-                        </div>
-                    </div>
-                    <div class="caixa col s4 offset-s1 white center center-align">
-                        <div class="col s12" style='float:left'>   
-                            <i class='material-icons large'>play_circle_filled</i>
-                        </div>
-                        <div class="col s12" style='float:left'>
-                            <p>Teste</p>
-                        </div>
-                    </div>
-                    <div class="caixa col s4 offset-s2 white center center-align">
-                        <div class="col s12" style='float:left'>   
-                            <i class='material-icons large'>play_circle_filled</i>
-                        </div>
-                        <div class="col s12" style='float:left'>
-                            <p>Teste</p>
+                        <div class="caixa col s8 red center center-align offset-s2">
+                            <a href="editar_musicas.php" class="waves-effect red modal-trigger">
+                                <div class="col s12 white-text" style='float:left'>   
+                                    <i class='material-icons medium'>edit</i>
+                                </div>
+                                <div class="col s12 white-text" style='float:left'>
+                                    <p>Editar<br>Musicas</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="col s12 blue lighten-4 player">
-                    <div class="col s12 blue lighten-3 controles center-align">
-                       
+                <div id="modal1" class="modal modal-fixed-footer">
+                    <div class="modal-content">
+                        <form action="criar_playlist.php" method="post">
+                            <h4>Playlist</h4>
+                            <div class="input-field">
+                                <input type="text" name="nm_playlist">
+                                <label for="nm_playlist">Nome</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="text" name="nm_categoria">
+                                <label for="nm_categoria">Categoria</label>
+                            </div>
+                            <div class="input-field col s12 center center-align">
+                                <button type="submit" class="btn">Enviar<i class="material-icons small">send</i></button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
                     </div>
                 </div>
             </div>
@@ -66,32 +112,9 @@
         <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script type="text/javascript">
-            var musicas = [];
-            <?php 
-                $i = 0;
-                while($i <= ($c - 1)){
-                    echo "musicas[$i] = [];";
-                    echo "musicas[$i][0] = '".$musicas[$i]['nome']."';";
-                    echo "musicas[$i][1] = 'musicas/".$musicas[$i]['src']."';";
-                    $i++;
-                }
-            ?>
-
-            function proximaMusica(){
-                var teste = document.getElementById('musica').value;
-                var soma = parseInt(teste) + 1;
-                document.getElementById('player').src = musicas[teste][1];
-                document.getElementById('musica').value = soma;
-                var mediaElement = document.getElementById('player');
-                mediaElement.seekable.start();
-            }
-
-            function corzinha(){
-                var teste = document.getElementById('musica').value;
-                var mus = parseInt(teste) - 1;
-                var lista = document.getElementById('m'+mus).style = 'background-color:red';
-                var lista = document.getElementById('m'+(mus - 1)).style = '';
-            }
+            $(document).ready(function(){
+                $('.modal').modal();
+            })
         </script>
     </body>
 </html>
@@ -99,9 +122,6 @@
     html{
         margin:0;
         padding:0;
-    }
-    .container{
-        width: 100%;
     }
     .topo{
         height: 25px;
@@ -127,5 +147,8 @@
     }
     .caixa{
         margin-top:10px;
+    }
+    .caixa a{
+        color:black;
     }
 </style>
