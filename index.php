@@ -11,7 +11,7 @@
             <div class="row">
                 <br><br>
                 <form action="login.php" method="post">
-                    <div class="col s10 offset-s1 m8 offset-m2 center-align white">
+                    <div class="col s10 m8 l6 offset-s1 offset-m2 offset-l3 center-align white">
                         <div class="titulo">
                             <br><br>
                             <i class="material-icons large">headset</i>
