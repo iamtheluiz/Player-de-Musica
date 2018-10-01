@@ -149,16 +149,9 @@
         <div class="content">
             <div class="row" id="corpo">
                 <!-- audiotrack, headset, delete, folder -->
-                <audio on></audio>
-                <div class="col s12 blue topo">
-                    <div class="home">
-                        <a href="home.php"><i class="material-icons">home</i></a>
-                    </div>
-                    <div class="menu">
-                        <a href="home.php">Geral</a>
-                        <a href="logout.php">Logout</a>
-                    </div>
-                </div>
+                <?php
+                    include_once('components/menu.php');
+                ?>
                 <div class="col s12 blue lighten-1 teste" style="cursor:pointer;">
                     <?php 
                         $musicas = [];

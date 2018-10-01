@@ -12,15 +12,9 @@
         <div class="content">
             <div class="row">
                 <!-- audiotrack, headset, delete, folder, play_circle_filled -->
-                <div class="col s12 blue topo">
-                    <div class="home">
-                        <a href="home.php"><i class="material-icons">home</i></a>
-                    </div>
-                    <div class="menu">
-                        <a href="home.php">Geral</a>
-                        <a href="logout.php">Logout</a>
-                    </div>
-                </div>
+                <?php
+                    include_once('components/menu.php');
+                ?>
                 <div class="col s12 blue lighten-1 teste">
                     <div class="col s10 offset-s1" style="margin-top:20px;">
                         <table>

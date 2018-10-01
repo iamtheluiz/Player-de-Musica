@@ -1,6 +1,6 @@
 <?php include('init/init.php'); ?>
 <!DOCTYPE html>
-<html>
+<html class="blue lighten-1">
     <head>
         <link href="css/material_icons.css" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
@@ -12,15 +12,9 @@
         <div class="content">
             <div class="row">
                 <!-- audiotrack, headset, delete, folder, play_circle_filled -->
-                <div class="col s12 blue topo">
-                    <div class="home">
-                        <a href="home.php"><i class="material-icons">home</i></a>
-                    </div>
-                    <div class="menu">
-                        <a href="home.php">Geral</a>
-                        <a href="logout.php">Logout</a>
-                    </div>
-                </div>
+                <?php
+                    include_once('components/menu.php');
+                ?>
                 <div class="col s12 blue lighten-1 teste">
                     <div class="col s10 offset-s1">
                         <div class="caixa col s8 white center center-align offset-s2">
@@ -114,6 +108,7 @@
         <script type="text/javascript">
             $(document).ready(function(){
                 $('.modal').modal();
+                $('.sidenav').sidenav();
             })
         </script>
     </body>
@@ -150,5 +145,11 @@
     }
     .caixa a{
         color:black;
+    }
+
+    @media only screen and (max-width: 992px){
+        .brand-logo{
+            left:7% !important;
+        }
     }
 </style>
