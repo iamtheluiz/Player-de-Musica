@@ -47,6 +47,7 @@ html{
 .controles{
     position: fixed;
     bottom:0;
+    z-index: 999 !important;
 }
 input[type="range"] {
     background-color: rgba(0,0,0,0);
