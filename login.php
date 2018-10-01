@@ -12,8 +12,8 @@ if(isset($_POST['login']) and isset($_POST['pass'])){
 
 		$sys->login($login, $pass);
 	}else{
-		$sys->redirect('index.php','Não se pode deixar campos vazios!');
+		$sys->redirect('Não se pode deixar campos vazios!','index.php');
 	}
 }else{
-	$sys->redirect('index.php','Faça envio do formulário de login para acessar!');
+	$sys->redirect('Faça envio do formulário de login para acessar!','index.php');
 }

@@ -68,12 +68,22 @@
                             </a>
                         </div>
                         <div class="caixa col s12 l6 center center-align">
-                            <a href="editar_musicas.php" class="waves-effect red modal-trigger col s10 offset-s1">
+                            <a href="editar_musicas.php" class="waves-effect red modal-trigger col s10 offset-s1"><br>
                                 <div class="col s12 white-text" style='float:left'>   
                                     <i class='material-icons medium'>edit</i>
-                                </div><br><br><br><br>
+                                </div><br><br><br>
                                 <div class="col s12 white-text" style='float:left'>
                                     <p>Editar<br>Musicas</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="caixa col s12 l6 center center-align">
+                            <a href="insert_das_musicas.php" class="waves-effect red modal-trigger col s10 offset-s1"><br>
+                                <div class="col s12 white-text" style='float:left'>   
+                                    <i class='material-icons medium'>refresh</i>
+                                </div><br><br><br>
+                                <div class="col s12 white-text" style='float:left'>
+                                    <p>Atualizar<br>Musicas</p>
                                 </div>
                             </a>
                         </div>

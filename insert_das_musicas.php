@@ -35,4 +35,4 @@ if ($dir = opendir('./musicas/')) {
     }
 }
 
-$sys->redirect("Suas musicas foram atualizadas!");
+$sys->redirect("Suas musicas foram atualizadas!","home.php");
