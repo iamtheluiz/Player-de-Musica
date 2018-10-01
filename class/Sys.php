@@ -48,7 +48,7 @@ class Sys{
 		if($_SESSION['logged_in'] == true){
 
 		}else{
-			$this->redirect('Você precisa logar para acessar essa pagina!','home.php');
+			$this->redirect('Você precisa logar para acessar essa pagina!','index.php');
 		}
 	}
 
