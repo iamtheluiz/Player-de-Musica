@@ -144,7 +144,7 @@
         </script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta charset="utf-8">
-        <title>Playlist Geral | Playlist</title>
+        <title>Playlist | Playlist</title>
     </head>
     <body>
         <div class="content">

@@ -1,3 +1,4 @@
+<title>Atualizar | Playlist</title>
 <?php 
 
 include('init/init.php');

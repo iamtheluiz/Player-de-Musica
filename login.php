@@ -1,4 +1,5 @@
 <meta charset="utf-8">
+<title>Login | Playlist</title>
 <?php
 
 include('class/Sys.php');

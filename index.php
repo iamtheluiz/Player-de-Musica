@@ -5,12 +5,13 @@
         <link href="css/material_icons.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta charset="utf-8">
+        <title>Login | Playlist</title>
     </head>
     <body class="blue">
         <div class="content">
             <div class="row">
                 <br><br>
-                <form action="login.php" method="post">
+                <form action="login.php" method="post" autocomplete="off">
                     <div class="col s10 m8 l6 offset-s1 offset-m2 offset-l3 center-align white">
                         <div class="titulo">
                             <br><br>

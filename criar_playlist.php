@@ -1,3 +1,4 @@
+<title>Criar Playlist | Playlist</title>
 <?php 
 include('init/init.php');
 

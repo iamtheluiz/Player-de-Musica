@@ -1,3 +1,4 @@
+<title>Alterar Música | Playlist</title>
 <?php 
 
 include('init/init.php');
