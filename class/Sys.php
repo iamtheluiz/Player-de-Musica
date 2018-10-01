@@ -28,10 +28,10 @@ class Sys{
 			$row = $query->fetch(PDO::FETCH_ASSOC);
 			session_start();
 			$_SESSION['logged_in'] = true;
-			$_SESSION['nm_user'] = $row['nm_user'];
-			$_SESSION['cd_user'] = $row['cd_user'];
+			$_SESSION['nm_user'] = $login;
+			$_SESSION['cd_user'] = $pass;
 
-			$this->redirect('Bem-vindo '.$row['nm_user'].'!','home.php');
+			$this->redirect('Bem-vindo '.$login.'!','home.php');
  		}else{
  			$this->redirect('Insira um login válido!','index.php');
 		}
