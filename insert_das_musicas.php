@@ -6,6 +6,10 @@ $pdo = $sys->pdo;
 $musicas = [];
 $c = -2;
 
+$sql = "DELETE from tb_musica where 1";
+$query = $pdo->prepare($sql);
+$query->execute();
+
 if ($dir = opendir('./musicas/')) {
     while (false !== ($file = readdir($dir))) {
         if ($file != "." && $file != "..") {
@@ -21,11 +25,13 @@ if ($dir = opendir('./musicas/')) {
             echo "<div id='m".$c."' onclick='selecionarMusica(".($c + 1).")'>";
             echo "<i class='material-icons'>audiotrack</i>$file<br>";
             echo "</div>";
-            /*$sql = "INSERT into tb_musica values (null,'$nome','$file')";
+            $sql = "INSERT into tb_musica values (null,'$nome','$file',DEFAULT)";
             $query = $pdo->prepare($sql);
             $query->execute();
-            echo $sql;*/
+            echo $sql;
         }
         $c++;
     }
 }
+
+$sys->redirect("Suas musicas foram atualizadas!");
