@@ -77,37 +77,3 @@
         </script>
     </body>
 </html>
-<style type="text/css">
-    html{
-        margin:0;
-        padding:0;
-    }
-    .topo{
-        height: 25px;
-        line-height: 25px;  
-    }
-    .home{
-        float:left;
-        width: 20%;
-    }
-    .menu{
-        float:left;
-        width: 79%;
-        text-align: right;
-        padding-right: 1%;
-    }
-    .home i{
-        color:white;
-    }
-    .menu a{
-        color:white;
-        text-decoration: none;
-        font-size: 8pt;
-    }
-    .caixa{
-        margin-top:10px;
-    }
-    .caixa a{
-        color:black;
-    }
-</style>

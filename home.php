@@ -1,6 +1,6 @@
 <?php include('init/init.php'); ?>
 <!DOCTYPE html>
-<html class="blue lighten-1">
+<html>
     <head>
         <link href="css/material_icons.css" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
@@ -17,8 +17,8 @@
                 ?>
                 <div class="col s12 blue lighten-1 teste">
                     <div class="col s10 offset-s1">
-                        <div class="caixa col s8 white center center-align offset-s2">
-                            <a href="playlist_geral.php">
+                        <div class="caixa col s12 l6 center center-align">
+                            <a href="playlist_geral.php" class="col s10 offset-s1 white">
                                 <div class="col s12" style='float:left'>   
                                     <i class='material-icons large'>play_circle_filled</i>
                                 </div>
@@ -27,7 +27,7 @@
                                 </div>
                             </a>
                         </div>
-                        <!-- <div class="caixa col s8 offset-s2 white center center-align">
+                        <!-- <div class="caixa col s12 l6 white center center-align">
                             <a href="playlist_geral.php">
                                 <div class="col s12" style='float:left'>   
                                     <i class='material-icons large'>play_circle_filled</i>
@@ -44,20 +44,20 @@
                             $query->execute();
 
                             while($row = $query->fetch(PDO::FETCH_ASSOC)){
-                                echo '<div class="caixa col s8 white center center-align offset-s2">
-                                    <a href="ver_playlist.php?cd='.$row['cd_playlist'].'">
+                                echo '<div class="caixa col s12 l6 center center-align">
+                                    <a href="ver_playlist.php?cd='.$row['cd_playlist'].'" class="col s10 offset-s1 white">
                                         <div class="col s12" style="float:left">   
                                             <i class="material-icons large">play_circle_filled</i>
                                         </div>
                                         <div class="col s12" style="float:left">
-                                            <p>'.$row['nm_playlist'].'</p>
+                                            <p>'.$row['nm_playlist'].'</p><br>
                                         </div>
                                     </a>
                                 </div>';
                             }
                         ?>
-                        <div class="caixa col s8 red center center-align offset-s2">
-                            <a href="#modal1" class="waves-effect red modal-trigger">
+                        <div class="caixa col s12 l6 center center-align">
+                            <a href="#modal1" class="waves-effect red modal-trigger col s10 offset-s1">
                                 <div class="col s12 white-text" style='float:left'>   
                                     <i class='material-icons large'>add</i>
                                 </div>
@@ -66,11 +66,11 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="caixa col s8 red center center-align offset-s2">
-                            <a href="editar_musicas.php" class="waves-effect red modal-trigger">
+                        <div class="caixa col s12 l6 center center-align">
+                            <a href="editar_musicas.php" class="waves-effect red modal-trigger col s10 offset-s1">
                                 <div class="col s12 white-text" style='float:left'>   
                                     <i class='material-icons medium'>edit</i>
-                                </div>
+                                </div><br><br><br><br>
                                 <div class="col s12 white-text" style='float:left'>
                                     <p>Editar<br>Musicas</p>
                                 </div>
@@ -113,43 +113,3 @@
         </script>
     </body>
 </html>
-<style type="text/css">
-    html{
-        margin:0;
-        padding:0;
-    }
-    .topo{
-        height: 25px;
-        line-height: 25px;  
-    }
-    .home{
-        float:left;
-        width: 20%;
-    }
-    .menu{
-        float:left;
-        width: 79%;
-        text-align: right;
-        padding-right: 1%;
-    }
-    .home i{
-        color:white;
-    }
-    .menu a{
-        color:white;
-        text-decoration: none;
-        font-size: 8pt;
-    }
-    .caixa{
-        margin-top:10px;
-    }
-    .caixa a{
-        color:black;
-    }
-
-    @media only screen and (max-width: 992px){
-        .brand-logo{
-            left:7% !important;
-        }
-    }
-</style>
